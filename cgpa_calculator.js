@@ -1,11 +1,11 @@
 const courseDetails = {
 	semester2: [
-		{course_code: "22ENT21", course_title: "Professional English"},
-		{course_code: "22MAT22", course_title: "Probability and Statistics"},
-		{course_code: "22PHT22", course_title: "Physics for Information Sciences"},
-		{course_code: "22EET11", course_title: "Basics of Electrical and Electronics Engineering"},
-		{course_code: "22ITT21", course_title: "C Programming"},
-		{course_code: "22HST11", course_title: "தமிழர்மரபு /Heritage of Tamils (For Students admitted in AY:2022-2023 only)"},
+		{course_title: "Professional English"},
+		{course_title: "Probability and Statistics"},
+		{course_title: "Physics for Information Sciences"},
+		{course_title: "Basics of Electrical and Electronics Engineering"},
+		{course_title: "C Programming"},
+		{course_title: "தமிழர்மரபு /Heritage of Tamils (For Students admitted in AY:2022-2023 only)"},
 		],	
 
 	practical: [
@@ -58,9 +58,23 @@ function updateDetails(){
 	
 }
 
-const addAnother = document.createElement("div");
-divCounter = 1;
-addAnother.classList.add(`newSub + ${divCounter}`);
-divCounter++;
+const storedValuesObj = {}; //empty object to store values from dropdown
+
+function storeValues(){
+	storedValuesObj.semester = selectedSem.value;
+	storedValuesObj.course = selectedCourse.value;
+	storedValuesObj.grade = selectedGrade.value;
+}
+
+addAnotherSubBtn.addEventListener("click", ()=> {
+	storeValues()
+	const p = document.getElementById("para");
+	const storedValuesJSON = JSON.stringify(storedValuesObj, null, 2);
+	p.textContent = storedValuesJSON;
+});
+
+selectedSem.addEventListener("change", storeValues);
+selectedCourse.addEventListener("change", storeValues);
+selectedGrade.addEventListener("change", storeValues);
 
 selectedSem.addEventListener("change", updateDetails);
