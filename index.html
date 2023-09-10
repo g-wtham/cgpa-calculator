@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CGPA Calculator</title>
+    </head>
+    <body>
+        <form id="gradeCalc-form">
+            <label for="semester-num">Choose your semester: </label>
+            <select name="semester_num" id="semester-num">
+                <option value="semester1">Semester-1</option>
+                <option value="semester2">Semester-2</option>
+                <option value="semester3">Semester-3</option>
+                <option value="semester4">Semester-4</option>
+            </select>
+            
+            <br>
+            <br>
+            
+            <div class="course-container">
+                <label for="selected-course">Select the course: </label>
+                <select name="course_details" id="selected-course"></select>
+            </div>
+            
+            <div class="grades-container">
+                <label for="selected-grades">Select your scored grade: </label>
+                <select name="grade_letters" id="selected-grades"></select>
+            </div>
+            <p id="para"></p>
+            <button type="button" id="addSubBtn">Add another subject</button>
+        </form>
+        <script type="text/javascript" src="cgpa_calculator.js"></script>
+    </body>
+</html>
